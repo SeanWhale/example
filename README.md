@@ -11,3 +11,5 @@
 Scrum Master (SM)：ZMY
 
 开发团队 (Dev Team)：LJX
+
+导入依赖操作执行命令 pip install -r requirements.txt
