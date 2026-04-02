@@ -4,7 +4,7 @@
 BASE_URL = "https://detail.zol.com.cn/cell_phone_index/subcate57_0_list_1.html"
 
 # 存储的文件名
-OUTPUT_FILE = "phones_data.csv"
+OUTPUT_FILE = "../data/phones_data.csv"
 
 # 浏览器伪装
 HEADERS = {
