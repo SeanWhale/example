@@ -6,6 +6,7 @@ import time
 from network import NetRequester
 from spider import DataParser
 from tqdm import tqdm
+from gui import CrawlerGUI
 
 def run_cli():
     print("🚀 [命令行模式] 启动...")
@@ -34,7 +35,7 @@ def run_cli():
 
 def run_gui():
     print("🎨 [图形界面模式] 启动...")
-    from gui import CrawlerGUI
+
     app = CrawlerGUI()
     app.mainloop()
 

@@ -1,11 +1,16 @@
 # config.py
 import os
+import datetime  # 导入时间模块
+
 
 # 起点网址
 BASE_URL = "https://detail.zol.com.cn/cell_phone_index/subcate57_0_list_1.html"
 
-# 存储路径：自动创建 data 文件夹
-OUTPUT_FILE = "phones_data_v2.csv"
+# 1. 获取当前时间，格式化成：年月日_时分秒
+now_time = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+
+# 2. 拼接文件名：前缀 + 时间 + 后缀
+OUTPUT_FILE = f"../data/运行结果_{now_time}.txt"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
