@@ -58,7 +58,7 @@ class CrawlerGUI(ctk.CTk):
         t = threading.Thread(target=self.run_crawler)
         t.start()
 
-    def run_crawler(self):
+def run_crawler(self):
         """核心爬取逻辑 (Sprint 3 契约驱动重构版)"""
         try:
             # ======= [Sprint 3 任务：Mock 模式开关] =======
@@ -87,10 +87,10 @@ class CrawlerGUI(ctk.CTk):
                 storage.save_to_csv(mock_data, config.OUTPUT_FILE)
                 self.log(f"✨ [Mock] 任务圆满完成！存储路径: {config.OUTPUT_FILE}")
                 
-                return # 执行完 Mock 直接返回，不跑下面的真实逻辑
+                return # 👈 关键！执行完 Mock 直接返回，不跑下面的真实逻辑
             # =============================================
 
-            # --- 下面是原有的真实爬虫逻辑 ---
+            # --- 下面是你原有的真实爬虫逻辑 ---
             self.log("🚀 引擎初始化中...")
             requester = NetRequester(config.HEADERS)
             parser = DataParser(config.EXTRACTION_SCHEMA)
