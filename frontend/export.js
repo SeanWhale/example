@@ -22,7 +22,6 @@ async function exportWithTimeout() {
             throw new Error(`HTTP ${response.status}`);
         }
 
-        await response.json();
         alert("数据获取成功！");
     } catch (error) {
         // 3. 捕获超时或异常情况
@@ -36,4 +35,8 @@ async function exportWithTimeout() {
     } finally {
         clearTimeout(timeoutId);
     }
+}
+
+if (typeof window !== "undefined") {
+    window.exportWithTimeout = exportWithTimeout;
 }
