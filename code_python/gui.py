@@ -58,7 +58,7 @@ class CrawlerGUI(ctk.CTk):
         t = threading.Thread(target=self.run_crawler)
         t.start()
 
-    def run_crawler(self):
+def run_crawler(self):
         """核心爬取逻辑 (Sprint 3 契约驱动重构版)"""
         try:
             mock_mode = True 
@@ -77,7 +77,7 @@ class CrawlerGUI(ctk.CTk):
                 return
             # =============================================
 
-            # --- 下面是原有的真实爬虫逻辑 ---
+            # --- 下面是你原有的真实爬虫逻辑 ---
             self.log("🚀 引擎初始化中...")
             requester = NetRequester(config.HEADERS)
             parser = DataParser(config.EXTRACTION_SCHEMA)
