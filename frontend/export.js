@@ -13,10 +13,16 @@ async function exportWithTimeout() {
             signal: controller.signal
         });
 
-        const data = await response.json();
-        clearTimeout(timeoutId); // 成功则清除定时器
-        alert("数据获取成功！");
+        if (response.status === 400) {
+            alert("错误：当前没有可导出的数据！");
+            return;
+        }
 
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        alert("数据获取成功！");
     } catch (error) {
         // 3. 捕获超时或异常情况
         if (error.name === 'AbortError') {
@@ -26,5 +32,11 @@ async function exportWithTimeout() {
             console.error("请求失败：", error);
             alert("网络异常，请联系管理员。");
         }
+    } finally {
+        clearTimeout(timeoutId);
     }
+}
+
+if (typeof window !== "undefined") {
+    window.exportWithTimeout = exportWithTimeout;
 }
