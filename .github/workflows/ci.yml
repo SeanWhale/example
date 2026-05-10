@@ -2,7 +2,9 @@ name: EFR Team Web Crawler CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, feature/agents-doc ] # 增加当前的分支名
+  pull_request:
+    branches: [ main ] # PR 时自动检查
 
 jobs:
   build-and-push:
